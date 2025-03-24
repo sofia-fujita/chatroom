@@ -15,6 +15,7 @@ if "history" not in st.session_state:
 
 def askllm(query):
     try:
+        response = requests.post(st.secrets["LLM_URL"], json={"query":query})
         restext = json.loads(response.text)["text"]
         st.markdown(restext)
         st.session_state.history.append({"role": "user", "content": query})
