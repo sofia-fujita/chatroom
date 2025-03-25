@@ -67,7 +67,7 @@ def askllm(query):
         restext = json.loads(response.text)["text"]
         st.markdown(restext)
         st.session_state.history.append({"role": "user", "content": query})
-        st.session_state.history.append({"role": "ai", "content": restext})
+        st.session_state.history.append({"role": "assistant", "content": restext})
     except:
         st.text("お待たせしごめんなさい。順番にお答えしていきますね。しばらく待ってからまたいらしてくださいね！")
 
